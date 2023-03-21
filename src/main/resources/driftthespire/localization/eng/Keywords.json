@@ -1,0 +1,72 @@
+[
+  {
+    "PROPER_NAME": "Accelerate",
+    "NAMES": [
+      "accelerate",
+      "Accelerate"
+    ],
+    "DESCRIPTION": "Increases your #ySpeed by 10."
+  },
+  {
+    "PROPER_NAME": "Slow Down",
+    "NAMES": [
+      "Slow Down",
+      "slow_down",
+      "Slow_down",
+      "Slow_Down"
+    ],
+    "DESCRIPTION": "Reduces your #ySpeed by 10."
+  },
+  {
+    "PROPER_NAME": "Brake",
+    "NAMES": [
+      "brake",
+      "Brake"
+    ],
+    "DESCRIPTION": "Resets your #ySpeed."
+  },
+  {
+    "PROPER_NAME": "Speed",
+    "NAMES": [
+      "speed",
+      "Speed"
+    ],
+    "DESCRIPTION": "#ySpeed increases the damage of your attacks by a percentage. Be careful not to go too fast or you might #ycrash!"
+  },
+  {
+    "PROPER_NAME": "Reverse Speed?",
+    "NAMES": [
+      "Reverse Speed?",
+      "reverse_speed?",
+      "Reverse_speed?",
+      "Reverse_Speed?"
+    ],
+    "DESCRIPTION": "#yReverse #ySpeed increases the #yBlock of your skills by a percentage. Be careful not to reverse too fast or you might #ycrash!"
+  },
+  {
+    "PROPER_NAME": "Drift",
+    "NAMES": [
+      "drift",
+      "Drift"
+    ],
+    "DESCRIPTION": "Cards with drift maintain your #ySpeed."
+  },
+  {
+    "PROPER_NAME": "Gear",
+    "NAMES": [
+      "gear",
+      "Gear"
+    ],
+    "DESCRIPTION": "#yGear makes you #yAccelerate 1 at the start of each turn. #yGears go from 1 to 5"
+  },
+  {
+    "PROPER_NAME": "Reverse Gear",
+    "NAMES": [
+      "Reverse Gear",
+      "reverse_gear",
+      "Reverse_gear",
+      "Reverse_Gear"
+    ],
+    "DESCRIPTION": "#yReverse #yGear makes you #ySlow #yDown 3 at the start of each turn."
+  }
+]

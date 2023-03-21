@@ -1,0 +1,55 @@
+{
+  "${modID}:SpeedPower": {
+    "NAME": "Speed",
+    "DESCRIPTIONS": [
+      "Attacks deal #b",
+      "% additional damage. While you have #ySpeed playing an attack reduces it by 10."
+    ]
+  },
+  "${modID}:ReverseSpeedPower": {
+    "NAME": "Reverse Speed?",
+    "DESCRIPTIONS": [
+      "Skills block #b",
+      "% additional damage. While you have #yReverse #ySpeed? playing a skill reduces it 10."
+    ]
+  },
+  "${modID}:TuningPower": {
+    "NAME": "Speed Limit",
+    "DESCRIPTIONS": [
+      "Your #ySpeed limit is #b",
+      ". If you exceed it you'll #yCrash, dealing #b",
+      " damage to ALL enemies and #b",
+      " to you."
+    ]
+  },
+  "${modID}:GearPower": {
+    "NAME": "Gear",
+    "DESCRIPTIONS": [
+      "At the start of your turn #yAccelerate #b",
+      "."
+    ]
+  },
+  "${modID}:ReverseGearPower": {
+    "NAME": "Reverse Gear",
+    "DESCRIPTIONS": [
+      "At the start of your turn #ySlow #yDown #b",
+      "."
+    ]
+  },
+  "${modID}:TailgatingPower": {
+    "NAME": "Tailgating",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " #yRear #yBumps into your hand.",
+      " #yRear #yBump into your hand."
+    ]
+  },
+  "${modID}:UpgradedTailgatingPower": {
+    "NAME": "Tailgating+",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " #yUpgraded #yRear #yBumps into your hand.",
+      " #yUpgraded #yRear #yBump into your hand."
+    ]
+  }
+}

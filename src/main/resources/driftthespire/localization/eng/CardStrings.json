@@ -1,0 +1,76 @@
+{
+  "${modID}:StrikeCar": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:DefendCar": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "${modID}:StepOn": {
+    "NAME": "Step On...",
+    "DESCRIPTION": "Choose one: NL ${modID}:Accelerate !M! or Gain !B! Block and ${modID}:Slow_Down !M!."
+  },
+  "${modID}:AccelerateOption": {
+    "NAME": "The Accelerator",
+    "DESCRIPTION": "${modID}:Accelerate !M!."
+  },
+  "${modID}:SlowdownOption": {
+    "NAME": "The Brake",
+    "DESCRIPTION": "Gain !B! Block and ${modID}:Slow_Down !M!."
+  },
+  "${modID}:AggressiveTurn": {
+    "NAME": "Aggressive Turn",
+    "DESCRIPTION": "${modID}:Drift. NL Deal !D! damage."
+  },
+  "${modID}:PopTheHood": {
+    "NAME": "Pop The Hood",
+    "DESCRIPTION": "Gain !M! Vulnerable. Heal !${modID}:M2! HP. NL Exhaust."
+  },
+  "${modID}:Tuning": {
+    "NAME": "Tuning",
+    "DESCRIPTION": "Increase your ${modID}:Speed limit by !M!."
+  },
+  "${modID}:GearShift": {
+    "NAME": "Gear Shift",
+    "DESCRIPTION": "Choose a gear."
+  },
+  "${modID}:UpGear": {
+    "NAME": "Shift Up",
+    "DESCRIPTION": "Increase your ${modID}:Gear. Lose !M! Dexterity."
+  },
+  "${modID}:NeutralGear": {
+    "NAME": "Neutral",
+    "DESCRIPTION": "Reset your ${modID}:Gear. NL Reset any Dexterity changes caused by *Gear *Shift"
+  },
+  "${modID}:DownGear": {
+    "NAME": "Shift Down",
+    "DESCRIPTION": "Lower your ${modID}:Gear. Gain !M! Dexterity."
+  },
+  "${modID}:ReverseGear": {
+    "NAME": "Reverse",
+    "DESCRIPTION": "Change to ${modID}:Reverse_Gear. Gain !M! Dexterity."
+  },
+  "${modID}:LeaveItAlone": {
+    "NAME": "Leave it Alone",
+    "DESCRIPTION": "Do nothing."
+  },
+  "${modID}:OilChange": {
+    "NAME": "Oil Change",
+    "DESCRIPTION": "Gain [E]. NL Draw a card. NL Heal !M! HP.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Draw 2 cards. NL Heal !M! HP."
+  },
+  "${modID}:MultiTrackDrifting": {
+    "NAME": "Multi Track Drifting",
+    "DESCRIPTION": "${modID}:Drift. NL Deal !D! damage to ALL enemies. NL Exhaust."
+  },
+  "${modID}:Tailgating": {
+    "NAME": "Tailgating",
+    "DESCRIPTION": "At the start of your turn, add a *Rear *Bump into your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, add a *Rear *Bump+ into your hand."
+  },
+  "${modID}:RearBump": {
+    "NAME": "Rear Bump",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Exhaust."
+  }
+}

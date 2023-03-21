@@ -1,0 +1,13 @@
+{
+  "${modID}:TheAutomobile": {
+    "NAMES": [
+      "The Automobile",
+      "the Automobile"
+    ],
+    "TEXT": [
+      "A strange vehicle given a soul by the Spire. NL It hungers for fuel, speed and destruction.",
+      " NL Text displayed when smacking the heart. The next one is used for the Vampires event. Usually you just change the last bit.",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~mobile~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  }
+}

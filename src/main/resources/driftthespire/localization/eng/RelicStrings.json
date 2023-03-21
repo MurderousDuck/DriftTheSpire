@@ -1,0 +1,16 @@
+{
+  "${modID}:OldEngine": {
+    "NAME": "Old Engine",
+    "FLAVOR": "An old well maintained engine.",
+    "DESCRIPTIONS": [
+      "#y${modID}:Accelerate #b%d at the start of each combat."
+    ]
+  },
+  "${modID}:DustyMeter": {
+    "NAME": "Dusty Meter",
+    "FLAVOR": "A very dusty meter. You can barely see the speed in it.",
+    "DESCRIPTIONS": [
+      "Shows your #y${modID}:Speed limit."
+    ]
+  }
+}
