@@ -1,12 +1,12 @@
 package driftthespire.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static driftthespire.DriftTheSpire.makeID;
-import static driftthespire.util.CharacterVariables.BASE_SPEED_INCREMENT;
+import static driftthespire.character.CharacterUtils.doSpeedLoss;
+import static driftthespire.character.CharacterVariables.BASE_SPEED_INCREMENT;
 
 public class ReverseGearPower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID("ReverseGearPower");
@@ -22,9 +22,8 @@ public class ReverseGearPower extends BasePower implements CloneablePowerInterfa
         this.description = DESCRIPTIONS[0] + REVERSE_GEAR_AMOUNT + DESCRIPTIONS[1];
     }
 
-    @Override
     public void atStartOfTurnPostDraw() {
-        addToBot(new ReducePowerAction(owner, owner, SpeedPower.POWER_ID, REVERSE_GEAR_AMOUNT * BASE_SPEED_INCREMENT));
+        doSpeedLoss(REVERSE_GEAR_AMOUNT * BASE_SPEED_INCREMENT);
     }
 
     //Optional, for CloneablePowerInterface.

@@ -8,7 +8,7 @@ import driftthespire.character.TheAutomobile;
 import driftthespire.powers.SpeedLimitPower;
 
 import static driftthespire.DriftTheSpire.makeID;
-import static driftthespire.util.CharacterVariables.BASE_SPEED_LIMIT;
+import static driftthespire.character.CharacterVariables.BASE_SPEED_LIMIT;
 
 public class DustyMeter extends BaseRelic {
     private static final String NAME = "DustyMeter"; //The name will be used for determining the image file as well as the ID.

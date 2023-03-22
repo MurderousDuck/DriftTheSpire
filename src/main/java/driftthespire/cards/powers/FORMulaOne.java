@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import driftthespire.cards.BaseCard;
 import driftthespire.character.TheAutomobile;
+import driftthespire.powers.FORMulaOnePower;
 import driftthespire.powers.SpeedLimitPower;
 import driftthespire.util.CardInfo;
 
@@ -23,14 +24,17 @@ public class FORMulaOne extends BaseCard {
     public static final String ID = makeID(cardInfo.baseId);
     private static final int MAGIC_NUMBER = 100;
     private static final int UPG_MAGIC_NUMBER = 50;
+    private static final int PERCENTAGE_NUMBER = 100;
 
     public FORMulaOne() {
         super(cardInfo);
         setMagic(MAGIC_NUMBER, UPG_MAGIC_NUMBER);
+        setSecondMagic(PERCENTAGE_NUMBER);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new SpeedLimitPower(p, this.magicNumber), this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new FORMulaOnePower(p, 1), 1));
     }
 }

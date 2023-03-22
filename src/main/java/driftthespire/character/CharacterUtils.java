@@ -1,4 +1,4 @@
-package driftthespire.util;
+package driftthespire.character;
 
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -7,22 +7,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import driftthespire.powers.GearPower;
-import driftthespire.powers.ReverseGearPower;
-import driftthespire.powers.SpeedPower;
+import driftthespire.powers.*;
 
-import static driftthespire.util.CharacterVariables.BASE_SPEED_INCREMENT;
-import static driftthespire.util.CharacterVariables.EXTRA_SPEED_INCREMENT;
+import static driftthespire.character.CharacterVariables.BASE_SPEED_LIMIT;
 
 public class CharacterUtils {
-    /* ACCELERATE */
-    public static void accelerate(int amount) {
-        AbstractPlayer p = AbstractDungeon.player;
-        GameActionManager gam = AbstractDungeon.actionManager;
-        gam.addToBottom(new ApplyPowerAction(p, p,
-                new SpeedPower(p, amount * BASE_SPEED_INCREMENT + EXTRA_SPEED_INCREMENT), amount * BASE_SPEED_INCREMENT + EXTRA_SPEED_INCREMENT));
-    }
-
     /* GEAR SHIFT */
     public static int currentGear = 0;
 
@@ -87,5 +76,28 @@ public class CharacterUtils {
         AbstractPower power = p.getPower(GearPower.POWER_ID);
         gam.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, power.amount), power.amount));
         gam.addToBottom(new RemoveSpecificPowerAction(p, p, GearPower.POWER_ID));
+    }
+
+    public static int getSpeedLimit() {
+        AbstractPlayer p = AbstractDungeon.player;
+        return p.getPower(SpeedLimitPower.POWER_ID) != null ? p.getPower(SpeedLimitPower.POWER_ID).amount : BASE_SPEED_LIMIT;
+    }
+
+    public static void doSpeedGain(int speed) {
+        AbstractPlayer p = AbstractDungeon.player;
+        GameActionManager gam = AbstractDungeon.actionManager;
+        gam.addToBottom(new ApplyPowerAction(p, p, new SpeedPower(p, speed), speed));
+    }
+
+    public static void doSpeedLoss(int speed) {
+        AbstractPlayer p = AbstractDungeon.player;
+        GameActionManager gam = AbstractDungeon.actionManager;
+        gam.addToBottom(new ApplyPowerAction(p, p, new SpeedPower(p, -speed), -speed));
+    }
+
+    public static int getSpeedAfterMultiplier(int speed) {
+        AbstractPlayer p = AbstractDungeon.player;
+        AbstractPower form = p.getPower(FORMulaOnePower.POWER_ID);
+        return form != null ? speed * (1 + form.amount) : speed;
     }
 }

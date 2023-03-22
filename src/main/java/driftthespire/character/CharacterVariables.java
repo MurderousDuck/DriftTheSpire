@@ -1,4 +1,4 @@
-package driftthespire.util;
+package driftthespire.character;
 
 public class CharacterVariables {
     public static final int BASE_SPEED_INCREMENT = 10;

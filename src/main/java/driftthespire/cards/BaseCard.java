@@ -23,16 +23,31 @@ public abstract class BaseCard extends CustomCard {
     protected boolean upgradeBlock;
     protected boolean upgradeMagic;
 
-    protected int secondMagic;
-    protected int baseSecondMagic;
-    protected boolean upgradeSecondMagic;
-    protected boolean isSecondMagicModified;
+    public int secondMagic;
+    public int baseSecondMagic;
+    public boolean upgradeSecondMagic;
+    public boolean upgradedSecondMagic;
+    public boolean isSecondMagicModified;
+
+    public int speedGain;
+    public int baseSpeedGain;
+    public boolean upgradeSpeedGain;
+    public boolean upgradedSpeedGain;
+    public boolean isSpeedGainModified;
+
+    public int speedLoss;
+    public int baseSpeedLoss;
+    public boolean upgradeSpeedLoss;
+    public boolean upgradedSpeedLoss;
+    public boolean isSpeedLossModified;
 
     protected int costUpgrade;
     protected int damageUpgrade;
     protected int blockUpgrade;
     protected int magicUpgrade;
     protected int secondMagicUpgrade;
+    protected int speedGainUpgrade;
+    protected int speedLossUpgrade;
 
     protected boolean baseExhaust = false;
     protected boolean upgExhaust = false;
@@ -122,6 +137,14 @@ public abstract class BaseCard extends CustomCard {
     {
         this.setSecondMagic(secondMagic, 0);
     }
+    protected final void setSpeedGain(int speedGain)
+    {
+        this.setSpeedGain(speedGain, 0);
+    }
+    protected final void setSpeedLoss(int speedLoss)
+    {
+        this.setSpeedLoss(speedLoss, 0);
+    }
     protected final void setCostUpgrade(int costUpgrade)
     {
         this.costUpgrade = costUpgrade;
@@ -162,10 +185,28 @@ public abstract class BaseCard extends CustomCard {
     protected final void setSecondMagic(int secondMagic, int secondMagicUpgrade)
     {
         this.baseSecondMagic = this.secondMagic = secondMagic;
-        if (magicUpgrade != 0)
+        if (secondMagicUpgrade != 0)
         {
-            this.upgradeMagic = true;
-            this.secondMagicUpgrade = magicUpgrade;
+            this.upgradeSecondMagic = true;
+            this.secondMagicUpgrade = secondMagicUpgrade;
+        }
+    }
+    protected final void setSpeedGain(int speedGain, int speedGainUpgrade)
+    {
+        this.baseSpeedGain = this.speedGain = speedGain;
+        if (speedGainUpgrade != 0)
+        {
+            this.upgradeSpeedGain = true;
+            this.speedGainUpgrade = speedGainUpgrade;
+        }
+    }
+    protected final void setSpeedLoss(int speedLoss, int speedLossUpgrade)
+    {
+        this.baseSpeedLoss = this.speedLoss = speedLoss;
+        if (speedLossUpgrade != 0)
+        {
+            this.upgradeSpeedLoss = true;
+            this.speedLossUpgrade = speedLossUpgrade;
         }
     }
     protected final void setExhaust(boolean baseExhaust, boolean upgExhaust)
@@ -193,6 +234,23 @@ public abstract class BaseCard extends CustomCard {
         this.selfRetain = baseRetain;
     }
 
+    protected void upgradeSecondMagicNumber(int amount) {
+        this.baseSecondMagic += amount;
+        this.secondMagic = this.baseSecondMagic;
+        this.upgradedSecondMagic = true;
+    }
+
+    protected void upgradeSpeedGain(int amount) {
+        this.baseSpeedGain += amount;
+        this.speedGain = this.baseSpeedGain;
+        this.upgradedSpeedGain = true;
+    }
+
+    protected void upgradeSpeedLoss(int amount) {
+        this.baseSpeedLoss += amount;
+        this.speedLoss = this.baseSpeedLoss;
+        this.upgradedSpeedLoss = true;
+    }
 
     @Override
     public AbstractCard makeStatEquivalentCopy() {
@@ -209,11 +267,17 @@ public abstract class BaseCard extends CustomCard {
             ((BaseCard) card).upgradeDamage = this.upgradeDamage;
             ((BaseCard) card).upgradeBlock = this.upgradeBlock;
             ((BaseCard) card).upgradeMagic = this.upgradeMagic;
+            ((BaseCard) card).upgradeSecondMagic = this.upgradeSecondMagic;
+            ((BaseCard) card).upgradeSpeedGain = this.upgradeSpeedGain;
+            ((BaseCard) card).upgradeSpeedLoss = this.upgradeSpeedLoss;
 
             ((BaseCard) card).costUpgrade = this.costUpgrade;
             ((BaseCard) card).damageUpgrade = this.damageUpgrade;
             ((BaseCard) card).blockUpgrade = this.blockUpgrade;
             ((BaseCard) card).magicUpgrade = this.magicUpgrade;
+            ((BaseCard) card).secondMagicUpgrade = this.secondMagicUpgrade;
+            ((BaseCard) card).speedGainUpgrade = this.speedGainUpgrade;
+            ((BaseCard) card).speedLossUpgrade = this.speedLossUpgrade;
 
             ((BaseCard) card).baseExhaust = this.baseExhaust;
             ((BaseCard) card).upgExhaust = this.upgExhaust;
@@ -226,6 +290,26 @@ public abstract class BaseCard extends CustomCard {
         }
 
         return card;
+    }
+
+    @Override
+    public void displayUpgrades() {
+        super.displayUpgrades();
+
+        if (this.upgradedSecondMagic) {
+            this.secondMagic = this.baseSecondMagic;
+            this.isSecondMagicModified = true;
+        }
+
+        if (this.upgradedSpeedGain) {
+            this.speedGain = this.baseSpeedGain;
+            this.isSpeedGainModified = true;
+        }
+
+        if (this.upgradedSpeedLoss) {
+            this.speedLoss = this.baseSpeedLoss;
+            this.isSpeedLossModified = true;
+        }
     }
 
     @Override
@@ -268,6 +352,15 @@ public abstract class BaseCard extends CustomCard {
 
             if (upgradeMagic)
                 this.upgradeMagicNumber(magicUpgrade);
+
+            if (upgradeSecondMagic)
+                this.upgradeSecondMagicNumber(secondMagicUpgrade);
+
+            if (upgradeSpeedGain)
+                this.upgradeSpeedGain(speedGainUpgrade);
+
+            if (upgradeSpeedLoss)
+                this.upgradeSpeedLoss(speedLossUpgrade);
 
             if (baseExhaust ^ upgExhaust)
                 this.exhaust = upgExhaust;

@@ -22,14 +22,9 @@ public class UpgradedTailgatingPower extends BasePower implements CloneablePower
     }
 
     public void updateDescription() {
-        if (amount > 1) {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-        }
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    @Override
     public void atStartOfTurn() {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             flash();

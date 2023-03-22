@@ -1,10 +1,11 @@
 package driftthespire.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,13 +14,15 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import driftthespire.util.CustomTags;
 
 import static driftthespire.DriftTheSpire.makeID;
-import static driftthespire.util.CharacterVariables.BASE_SPEED_INCREMENT;
-import static driftthespire.util.CharacterVariables.BASE_SPEED_LIMIT;
+import static driftthespire.character.CharacterUtils.getSpeedLimit;
+import static driftthespire.character.CharacterVariables.BASE_SPEED_INCREMENT;
 
 public class SpeedPower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID("SpeedPower");
     private static final AbstractPower.PowerType TYPE = AbstractPower.PowerType.BUFF;
     private static final boolean TURN_BASED = false;
+    private Color redColor = new Color(1.0F, 0.0F, 0.0F, 1.0F);
+    private Color greenColor = new Color(0.0F, 1.0F, 0.0F, 1.0F);
 
     public SpeedPower(AbstractCreature owner, int amount) {
         super(POWER_ID, TYPE, TURN_BASED, owner, amount);
@@ -27,17 +30,20 @@ public class SpeedPower extends BasePower implements CloneablePowerInterface {
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
+
         if(amount <= 0) {
-            addToBot(new RemoveSpecificPowerAction(owner, owner, SpeedPower.POWER_ID));
-            return;
+            removeThisPower();
         }
 
-        int speedLimit = owner.getPower(SpeedLimitPower.POWER_ID) != null ? owner.getPower(SpeedLimitPower.POWER_ID).amount : 0;
-        if (amount > (speedLimit > 0 ? speedLimit : BASE_SPEED_LIMIT)) {
+        int speedLimit = getSpeedLimit();
+        if (amount > speedLimit) {
             flash();
             addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix((int)(speedLimit / 4f), true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
             addToBot(new DamageAction(owner, new DamageInfo(owner, (int)(speedLimit / 20f), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
-            addToBot(new RemoveSpecificPowerAction(owner, owner, SpeedPower.POWER_ID));
+            removeThisPower();
+            if(owner.getPower(FORMulaOnePower.POWER_ID) != null) {
+                addToBot(new LoseHPAction(owner, owner, 99999));
+            }
         }
     }
 

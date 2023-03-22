@@ -1,13 +1,12 @@
 package driftthespire.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static driftthespire.DriftTheSpire.makeID;
-import static driftthespire.util.CharacterVariables.BASE_SPEED_INCREMENT;
+import static driftthespire.character.CharacterUtils.doSpeedGain;
+import static driftthespire.character.CharacterVariables.BASE_SPEED_INCREMENT;
 
 public class GearPower extends BasePower implements CloneablePowerInterface {
     public static final String POWER_ID = makeID("GearPower");
@@ -22,9 +21,8 @@ public class GearPower extends BasePower implements CloneablePowerInterface {
         this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
-    @Override
     public void atStartOfTurnPostDraw() {
-        addToBot(new ApplyPowerAction(owner, owner, new SpeedPower(owner, amount * BASE_SPEED_INCREMENT), amount * BASE_SPEED_INCREMENT, AbstractGameAction.AttackEffect.NONE));
+        doSpeedGain(amount * BASE_SPEED_INCREMENT);
     }
 
     //Optional, for CloneablePowerInterface.

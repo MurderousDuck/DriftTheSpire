@@ -1,23 +1,5 @@
 [
   {
-    "PROPER_NAME": "Accelerate",
-    "NAMES": [
-      "accelerate",
-      "Accelerate"
-    ],
-    "DESCRIPTION": "Increases your #ySpeed by 10."
-  },
-  {
-    "PROPER_NAME": "Slow Down",
-    "NAMES": [
-      "Slow Down",
-      "slow_down",
-      "Slow_down",
-      "Slow_Down"
-    ],
-    "DESCRIPTION": "Reduces your #ySpeed by 10."
-  },
-  {
     "PROPER_NAME": "Brake",
     "NAMES": [
       "brake",
@@ -31,17 +13,25 @@
       "speed",
       "Speed"
     ],
-    "DESCRIPTION": "#ySpeed increases the damage of your attacks by a percentage. Be careful not to go too fast or you might #ycrash!"
+    "DESCRIPTION": "#ySpeed increases the damage of your attacks by a percentage. Be careful not to go too fast or you might #yCrash!"
   },
   {
-    "PROPER_NAME": "Reverse Speed?",
+    "PROPER_NAME": "Speed Limit",
     "NAMES": [
-      "Reverse Speed?",
-      "reverse_speed?",
-      "Reverse_speed?",
-      "Reverse_Speed?"
+      "Speed Limit",
+      "speed_limit",
+      "Speed_limit",
+      "Speed_Limit"
     ],
-    "DESCRIPTION": "#yReverse #ySpeed increases the #yBlock of your skills by a percentage. Be careful not to reverse too fast or you might #ycrash!"
+    "DESCRIPTION": "Your #ySpeed #yLimit dictates how much #ySpeed you can have before you #yCrash."
+  },
+  {
+    "PROPER_NAME": "Crash",
+    "NAMES": [
+      "crash",
+      "Crash"
+    ],
+    "DESCRIPTION": "Going over your #ySpeed #yLimit makes you #yCrash. #yCrashing deals damage to ALL enemies equal to 25% your #ySpeed #yLimit and 5% to you."
   },
   {
     "PROPER_NAME": "Drift",
@@ -57,7 +47,7 @@
       "gear",
       "Gear"
     ],
-    "DESCRIPTION": "#yGear makes you #yAccelerate 1 at the start of each turn. #yGears go from 1 to 5"
+    "DESCRIPTION": "Gain 10 #ySpeed for every #yGear at the start of your turn. #yGears go from 1 to 5"
   },
   {
     "PROPER_NAME": "Reverse Gear",
@@ -67,6 +57,6 @@
       "Reverse_gear",
       "Reverse_Gear"
     ],
-    "DESCRIPTION": "#yReverse #yGear makes you #ySlow #yDown 3 at the start of each turn."
+    "DESCRIPTION": "Lost 30 #ySpeed at the start of your turn."
   }
 ]

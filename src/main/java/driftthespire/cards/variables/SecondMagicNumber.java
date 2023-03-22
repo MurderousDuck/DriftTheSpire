@@ -1,7 +1,8 @@
-package driftthespire.cards;
+package driftthespire.cards.variables;
 
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import driftthespire.cards.BaseCard;
 
 import static driftthespire.DriftTheSpire.makeID;
 

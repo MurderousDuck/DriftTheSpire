@@ -3,7 +3,7 @@
     "NAME": "Old Engine",
     "FLAVOR": "An old well maintained engine.",
     "DESCRIPTIONS": [
-      "#y${modID}:Accelerate #b%d at the start of each combat."
+      "Gain #b%d #y${modID}:Speed at the start of each combat."
     ]
   },
   "${modID}:DustyMeter": {

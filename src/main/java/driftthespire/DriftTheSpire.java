@@ -17,10 +17,17 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import driftthespire.cards.BaseCard;
-import driftthespire.cards.SecondMagicNumber;
+import driftthespire.cards.variables.SecondMagicNumber;
+import driftthespire.cards.variables.SpeedGain;
+import driftthespire.cards.variables.SpeedLoss;
+import driftthespire.character.CharacterUtils;
+import driftthespire.character.CharacterVariables;
 import driftthespire.character.TheAutomobile;
+import driftthespire.powers.FORMulaOnePower;
 import driftthespire.relics.BaseRelic;
-import driftthespire.util.*;
+import driftthespire.util.GeneralUtils;
+import driftthespire.util.KeywordInfo;
+import driftthespire.util.TextureLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
@@ -85,6 +92,7 @@ public class DriftTheSpire implements
         //Set up the mod information displayed in the in-game mods menu.
         //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+        BaseMod.addPower(FORMulaOnePower.class, FORMulaOnePower.POWER_ID);
     }
 
     /*----------Localization----------*/
@@ -220,6 +228,8 @@ public class DriftTheSpire implements
                 .setDefaultSeen(true) //And marks them as seen in the compendium
                 .cards(); //Adds the cards
         BaseMod.addDynamicVariable(new SecondMagicNumber());
+        BaseMod.addDynamicVariable(new SpeedGain());
+        BaseMod.addDynamicVariable(new SpeedLoss());
     }
 
     @Override

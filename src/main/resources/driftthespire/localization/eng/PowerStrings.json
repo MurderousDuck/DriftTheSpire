@@ -6,13 +6,6 @@
       "% additional damage. While you have #ySpeed playing an attack reduces it by 10."
     ]
   },
-  "${modID}:ReverseSpeedPower": {
-    "NAME": "Reverse Speed?",
-    "DESCRIPTIONS": [
-      "Skills block #b",
-      "% additional damage. While you have #yReverse #ySpeed? playing a skill reduces it 10."
-    ]
-  },
   "${modID}:TuningPower": {
     "NAME": "Speed Limit",
     "DESCRIPTIONS": [
@@ -25,22 +18,21 @@
   "${modID}:GearPower": {
     "NAME": "Gear",
     "DESCRIPTIONS": [
-      "At the start of your turn #yAccelerate #b",
-      "."
+      "At the start of your turn gain #b",
+      " #ySpeed."
     ]
   },
   "${modID}:ReverseGearPower": {
     "NAME": "Reverse Gear",
     "DESCRIPTIONS": [
-      "At the start of your turn #ySlow #yDown #b",
-      "."
+      "At the start of your turn lose #b",
+      " #ySpeed."
     ]
   },
   "${modID}:TailgatingPower": {
     "NAME": "Tailgating",
     "DESCRIPTIONS": [
       "At the start of your turn, add #b",
-      " #yRear #yBumps into your hand.",
       " #yRear #yBump into your hand."
     ]
   },
@@ -48,8 +40,14 @@
     "NAME": "Tailgating+",
     "DESCRIPTIONS": [
       "At the start of your turn, add #b",
-      " #yUpgraded #yRear #yBumps into your hand.",
-      " #yUpgraded #yRear #yBump into your hand."
+      " #yRear #yBump+ into your hand."
+    ]
+  },
+  "${modID}:FORMulaOnePower": {
+    "NAME": "FORMula 1",
+    "DESCRIPTIONS": [
+      "All #ySpeed gains are increased by #b",
+      "%. If you #Crash you die."
     ]
   }
 }

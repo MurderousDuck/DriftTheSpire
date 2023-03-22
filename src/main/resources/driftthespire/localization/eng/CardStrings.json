@@ -9,15 +9,15 @@
   },
   "${modID}:StepOn": {
     "NAME": "Step On...",
-    "DESCRIPTION": "Choose one: NL ${modID}:Accelerate !M! or Gain !B! Block and ${modID}:Slow_Down !M!."
+    "DESCRIPTION": "Choose one: NL Gain !${modID}:SG! ${modID}:Speed or Gain !B! Block and lose !${modID}:SL! ${modID}:Speed."
   },
   "${modID}:AccelerateOption": {
     "NAME": "The Accelerator",
-    "DESCRIPTION": "${modID}:Accelerate !M!."
+    "DESCRIPTION": "Gain !${modID}:SG! ${modID}:Speed."
   },
   "${modID}:SlowdownOption": {
     "NAME": "The Brake",
-    "DESCRIPTION": "Gain !B! Block and ${modID}:Slow_Down !M!."
+    "DESCRIPTION": "Gain !B! Block and lose !${modID}:SL! ${modID}:Speed."
   },
   "${modID}:AggressiveTurn": {
     "NAME": "Aggressive Turn",
@@ -29,7 +29,7 @@
   },
   "${modID}:Tuning": {
     "NAME": "Tuning",
-    "DESCRIPTION": "Increase your ${modID}:Speed limit by !M!."
+    "DESCRIPTION": "Increase your ${modID}:Speed_Limit by !M!."
   },
   "${modID}:GearShift": {
     "NAME": "Gear Shift",
@@ -72,5 +72,14 @@
   "${modID}:RearBump": {
     "NAME": "Rear Bump",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage. NL Exhaust."
+  },
+  "${modID}:FORMulaOne": {
+    "NAME": "FORMula 1",
+    "DESCRIPTION": "Increase your ${modID}:Speed_Limit by !M!. NL Gain !${modID}:M2! % more ${modID}:Speed. NL If you ${modID}:Crash, die."
+  },
+  "${modID}:LoudHonk": {
+    "NAME": "Loud Honk",
+    "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak and Vulnerable to ALL enemies. NL Exhaust."
   }
 }

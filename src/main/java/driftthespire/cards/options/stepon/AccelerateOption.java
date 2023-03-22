@@ -6,9 +6,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import driftthespire.cards.BaseCard;
 import driftthespire.character.TheAutomobile;
 import driftthespire.util.CardInfo;
-import driftthespire.util.CharacterUtils;
 
 import static driftthespire.DriftTheSpire.makeID;
+import static driftthespire.character.CharacterUtils.doSpeedGain;
 
 public class AccelerateOption extends BaseCard {
     private final static CardInfo cardInfo = new CardInfo(
@@ -16,17 +16,17 @@ public class AccelerateOption extends BaseCard {
             -2, //The card's base cost. -1 is X cost, -2 is no cost for unplayable cards like curses, or Reflex.
             CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
             CardTarget.NONE, //The target. Single target is ENEMY, all enemies is ALL_ENEMY. Look at cards similar to what you want to see what to use.
-            CardRarity.BASIC, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
+            CardRarity.SPECIAL, //Rarity. BASIC is for starting cards, then there's COMMON/UNCOMMON/RARE, and then SPECIAL and CURSE. SPECIAL is for cards you only get from events. Curse is for curses, except for special curses like Curse of the Bell and Necronomicurse.
             TheAutomobile.Enums.CARD_COLOR //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
     );
 
     public static final String ID = makeID(cardInfo.baseId);
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
+    private static final int SPEED_GAIN = 20;
+    private static final int UPG_SPEED_GAIN = 10;
 
     public AccelerateOption() {
         super(cardInfo);
-        setMagic(MAGIC, UPG_MAGIC);
+        setSpeedGain(SPEED_GAIN, UPG_SPEED_GAIN);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class AccelerateOption extends BaseCard {
 
     @Override
     public void onChoseThisOption() {
-        CharacterUtils.accelerate(magicNumber);
+        doSpeedGain(speedGain);
     }
 
     @Override

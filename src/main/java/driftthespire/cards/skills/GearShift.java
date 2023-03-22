@@ -8,9 +8,9 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import driftthespire.cards.BaseCard;
 import driftthespire.cards.options.gearshift.*;
+import driftthespire.character.CharacterUtils;
 import driftthespire.character.TheAutomobile;
 import driftthespire.util.CardInfo;
-import driftthespire.util.CharacterUtils;
 
 import java.util.ArrayList;
 

@@ -25,22 +25,31 @@ public class StepOn extends BaseCard {
     );
 
     public static final String ID = makeID(cardInfo.baseId);
-    private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 1;
+    private static final int SPEED_GAIN = 20;
+    private static final int UPG_SPEED_GAIN = 10;
+    private static final int SPEED_LOSS = 20;
+    private static final int UPG_SPEED_LOSS = 10;
     private static final int BLOCK = 3;
     private static final int UPG_BLOCK = 2;
 
     public StepOn() {
         super(cardInfo);
-        setMagic(MAGIC, UPG_MAGIC);
+        setSpeedGain(SPEED_GAIN, UPG_SPEED_GAIN);
+        setSpeedLoss(SPEED_LOSS, UPG_SPEED_LOSS);
         setBlock(BLOCK, UPG_BLOCK);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> gearChoices = new ArrayList();
-        gearChoices.add(new AccelerateOption());
-        gearChoices.add(new SlowdownOption());
-        addToBot(new ChooseOneAction(gearChoices));
+        ArrayList<AbstractCard> pedalChoices = new ArrayList();
+        pedalChoices.add(new AccelerateOption());
+        pedalChoices.add(new SlowdownOption());
+
+        if(upgraded) {
+            pedalChoices.forEach(AbstractCard::upgrade);
+            pedalChoices.forEach(AbstractCard::applyPowers);
+        }
+
+        addToBot(new ChooseOneAction(pedalChoices));
     }
 }
